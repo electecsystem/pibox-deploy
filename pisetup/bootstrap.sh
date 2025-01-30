@@ -31,3 +31,9 @@ sudo systemctl start pishare.mount
 echo "Activating pigpio daemon"
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
+
+# disable serial console 
+sudo cp scripts/rpi-serial-console /usr/bin/rpi-serial-console
+sudo chmod +x /usr/bin/rpi-serial-console
+sudo rpi-serial-console status
+sudo rpi-serial-console disable 
