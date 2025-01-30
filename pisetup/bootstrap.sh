@@ -7,7 +7,7 @@ sudo apt upgrade -y
 echo "Setting up vlan"      
 sudo apt install vlan -y
 echo "Copying vlan config to /etc/network/interfaces.d"
-sudo mkdir /etc/network/interfaces.d/vlan
+sudo mkdir -p /etc/network/interfaces.d/vlan
 sudo cp configfiles/vlans /etc/network/interfaces.d/vlan
 
 
