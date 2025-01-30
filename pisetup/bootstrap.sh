@@ -7,7 +7,7 @@ sudo apt upgrade -y
 echo "Setting up vlan"      
 sudo apt install vlan -y
 echo "Copying vlan config to /etc/network/interfaces.d"
-sudo cp vlan /etc/network/interfaces.d/vlan
+sudo cp configfiles/vlan /etc/network/interfaces.d/vlan
 
 
 
@@ -18,11 +18,11 @@ sudo dpkg -i setupfiles/*.deb
 # Copy config.txt to /boot/firmware
 # print message that we are copying config.txt
 echo "Copying raspberry config.txt to /boot/firmware"
-sudo cp config.txt /boot/firmware/config.txt
+sudo cp configfiles/config.txt /boot/firmware/config.txt
 
 # copy mount-data.mount to /etc/systemd/system
 echo "Copying pishare.mount to /etc/systemd/system"
-sudo cp pishare.mount /etc/systemd/system/pishare.mount
+sudo cp configfiles/pishare.mount /etc/systemd/system/pishare.mount
 echo Mounting pishare network folder to /pishare
 sudo systemctl enable pishare.mount
 sudo systemctl start pishare.mount
