@@ -3,13 +3,16 @@ echo "Updating apt and upgrading packages"
 sudo apt update
 sudo apt upgrade -y
 
+# Install and configure Samba
+sudo apt-get install -y samba
+sudo smbpasswd -a $(whoami)
+
 # Setup vlan
 echo "Setting up vlan"      
 sudo apt install vlan -y
 echo "Copying vlan config to /etc/network/interfaces.d"
-sudo mkdir -p /etc/network/interfaces.d/vlan
+sudo mkdir -p /etc/network/interfaces.d/
 sudo cp configfiles/vlans /etc/network/interfaces.d/vlan
-
 
 
 # Install Debian package
