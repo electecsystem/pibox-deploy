@@ -10,7 +10,6 @@ sudo apt upgrade -y
 #sudo mkdir -p /etc/network/interfaces.d/
 #sudo cp configfiles/vlans /etc/network/interfaces.d
 
-sudo systemctl restart networking
 
 # Install Debian package
 echo "Installing any Debian packages in pisetup/ directory"
@@ -34,7 +33,11 @@ sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 
 # disable serial console 
-sudo cp scripts/rpi-serial-console /usr/bin/rpi-serial-console
-sudo chmod +x /usr/bin/rpi-serial-console
-sudo rpi-serial-console status
-sudo rpi-serial-console disable 
+FILE="/boot/firmware/cmdline.txt"
+
+# Use sed to remove 'console=serial0,115200' from the file and save it back to the same file
+# This disables serial console output
+sudo sed -i 's/console=serial0,115200//g' $FILE
+# Remove extra whitespaces 
+sudo sed -i 's/  / /g' $FILE
+
