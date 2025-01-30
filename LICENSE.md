@@ -1,2 +1,2 @@
 
-Copyright (C) 2024 Lars Holmgren
+Copyright (C) 2024 Electec System AB

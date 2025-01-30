@@ -1,0 +1,17 @@
+[Unit]
+Description=Mount home directory
+Requires=rpcbind.service network-online.target
+Wants=networking.service
+#
+# Replaces this line in fstab
+#192.168.50.8:/volume1/data   /mnt/data  nfs defaults,noatime,x-systemd.automount 0 0
+#
+[Mount]
+What=fs1:/pi-testbox
+Where=/pishare
+Type=nfs
+Options=defaults
+TimeoutSec=30
+
+[Install]
+WantedBy=multi-user.target
