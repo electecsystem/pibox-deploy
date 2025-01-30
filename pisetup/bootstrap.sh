@@ -10,6 +10,7 @@ sudo apt upgrade -y
 #sudo mkdir -p /etc/network/interfaces.d/
 #sudo cp configfiles/vlans /etc/network/interfaces.d
 
+sudo systemctl restart networking
 
 # Install Debian package
 echo "Installing any Debian packages in pisetup/ directory"
